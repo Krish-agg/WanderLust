@@ -8,7 +8,7 @@ cloudinary.config({
 
 });
 
-const storage = new CloudinaryStorage({
+const storage = CloudinaryStorage({
     cloudinary: cloudinary,
     params: {
       folder: 'wanderlust_DEV',
