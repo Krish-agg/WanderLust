@@ -39,6 +39,7 @@ async function main() {
     await mongoose.connect(url);
 }    
 
+
 // app.get("/testListing",async(req,res)=>{
 //     let sampleListing=new Listing({
 //         title:"My New Villa",
@@ -96,8 +97,12 @@ app.use((req,res,next)=>{
 app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
 app.use("/",userRouter);
-
-
+app.get("/privacy",(req,res)=>{
+    res.render("./listings/privacy.ejs");
+})
+app.get("/terms",(req,res)=>{
+    res.render("./listings/terms.ejs");
+})
 app.all("*",(req,res,next)=>{
     next(new ExpressError(404,"Page not Found!"));
 });
