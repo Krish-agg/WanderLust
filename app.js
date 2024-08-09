@@ -28,16 +28,16 @@ const url=process.env.ATLASDB_URL;
 app.use(methodOverride("_method"));
 app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"public")));
-// main().then(()=>{
-//     console.log("connected to DB!");
-// })
-// .catch((err)=>{
-//     console.log(err);
-// })
+main().then(()=>{
+    console.log("connected to DB!");
+})
+.catch((err)=>{
+    console.log(err);
+})
 
-// async function main() {
-//     await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust');
-// }    
+async function main() {
+    await mongoose.connect(url);
+}    
 
 
 // app.get("/testListing",async(req,res)=>{
