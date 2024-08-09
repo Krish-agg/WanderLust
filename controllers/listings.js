@@ -66,3 +66,26 @@ module.exports.deleteListing=async(req,res)=>{
     req.flash("success","Listing Deleted!");
     res.redirect("/listings");
 };
+
+module.exports.bookForm=async(req,res)=>{
+    let {id}=req.params;
+    const listing=await Listing.findById(id);
+    if(!listing){
+        req.flash("error","Listing does not exist!");
+        res.redirect("/listings");
+    }
+
+    let originalImageUrl=listing.image.url;
+    originalImageUrl=originalImageUrl.replace("/upload","/upload/w_256");
+    res.render("./listings/book.ejs",{listing,originalImageUrl});
+    
+};
+module.exports.bookConfirm=async(req,res)=>{
+    req.flash("success","Your booking has been confirmed.");
+    res.redirect("/listings");
+};
+module.exports.categoryForm=async(req,res)=>{
+    let {id}=req.params;
+    const allListings=await Listing.find({category:id});
+    res.render("listings/category.ejs",{allListings,id});
+}

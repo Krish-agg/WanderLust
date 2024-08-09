@@ -94,6 +94,9 @@ body{
 .show-img{
     height: 30vh;
 }
+.show-img1{
+    height: 40vh;
+}
 .btns{
     display: flex;
 }
@@ -101,3 +104,8 @@ body{
     padding-left: 0;
     padding-right: 0;
 }
+
+.book-div{
+    margin-left: 1rem;
+}
+

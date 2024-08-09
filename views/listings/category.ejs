@@ -37,54 +37,133 @@
     </style>
     <nav class="navbar">
     <div id="filters" class="collapse navbar-collapse">
-        <div class="filter navbar-nav" style="opacity: 1;">
-            <a href="/listings"><div style="color:#fe424d;"><i class="fa-solid fa-fire"></i></div></a>
+        <div class="filter navbar-nav">
+            <a href="/listings"><div style="color:black;"><i class="fa-solid fa-fire"></i></div></a>
+
             <p>Trending</p>
         </div>
-        <div class="filter navbar-nav">
+        
+        <%if (id=="rooms"){%>
+            <div class="filter navbar-nav" style="opacity: 1;">
+            <a href="/listings/cat/rooms"><div style="color:#fe424d;"><i class="fa-solid fa-bed"></i></div></a>
+            <p>Rooms</p>
+            </div>
+        <%}else{%>
+            <div class="filter navbar-nav">
             <a href="/listings/cat/rooms"><div style="color:black;"><i class="fa-solid fa-bed"></i></div></a>
             <p>Rooms</p>
-        </div>
-        <div class="filter navbar-nav">
+            </div>
+        <%}%>
+        <%if (id=="iconic"){%>
+            <div class="filter navbar-nav" style="opacity: 1;">
+            <a href="/listings/cat/iconic"><div style="color:#fe424d;"><i class="fa-solid fa-mountain-city"></i></div></a>
+            <p>Iconic Cities</p>
+            </div>
+        <%}else{%>
+            <div class="filter navbar-nav">
             <a href="/listings/cat/iconic"><div style="color:black;"><i class="fa-solid fa-mountain-city"></i></div></a>
             <p>Iconic Cities</p>
-        </div>
-        <div class="filter navbar-nav">
+            </div>
+        <%}%>
+        <%if (id=="mountains"){%>
+            <div class="filter navbar-nav" style="opacity: 1;">
+            <a href="/listings/cat/mountains"><div style="color:#fe424d;"><i class="fa-solid fa-mountain"></i></div></a>
+            <p>Mountains</p>
+            </div>
+        <%}else{%>
+            <div class="filter navbar-nav">
             <a href="/listings/cat/mountains"><div style="color:black;"><i class="fa-solid fa-mountain"></i></div></a>
             <p>Mountains</p>
-        </div>
-        <div class="filter navbar-nav">
+            </div>
+        <%}%>
+        <%if (id=="castles"){%>
+            <div class="filter navbar-nav" style="opacity: 1;">
+            <a href="/listings/cat/castles"><div style="color:#fe424d;"><i class="fa-brands fa-fort-awesome"></i></div></a>
+            <p>Castles</p>
+            </div>
+        <%}else{%>
+            <div class="filter navbar-nav">
             <a href="/listings/cat/castles"><div style="color:black;"><i class="fa-brands fa-fort-awesome"></i></div></a>
             <p>Castles</p>
-        </div>
-        <div class="filter navbar-nav">
+            </div>
+        <%}%>
+        <%if (id=="pools"){%>
+            <div class="filter navbar-nav" style="opacity: 1;">
+            <a href="/listings/cat/pools"><div style="color:#fe424d;"><i class="fa-solid fa-person-swimming"></i></div></a>
+            <p>Amazing Pools</p>
+            </div>
+        <%}else{%>
+            <div class="filter navbar-nav">
             <a href="/listings/cat/pools"><div style="color:black;"><i class="fa-solid fa-person-swimming"></i></div></a>
             <p>Amazing Pools</p>
-        </div>
-        <div class="filter navbar-nav">
+            </div>
+        <%}%>
+        <%if (id=="camping"){%>
+            <div class="filter navbar-nav" style="opacity: 1;">
+            <a href="/listings/cat/camping"><div style="color:#fe424d;"><i class="fa-solid fa-campground"></i></div></a>
+            <p>Camping</p>
+            </div>
+        <%}else{%>
+            <div class="filter navbar-nav">
             <a href="/listings/cat/camping"><div style="color:black;"><i class="fa-solid fa-campground"></i></div></a>
             <p>Camping</p>
-        </div>
-        <div class="filter navbar-nav">
+            </div>
+        <%}%>
+        <%if (id=="farms"){%>
+            <div class="filter navbar-nav" style="opacity: 1;">
+            <a href="/listings/cat/farms"><div style="color:#fe424d;"><i class="fa-solid fa-cow"></i></div></a>
+            <p>Farms</p>
+            </div>
+        <%}else{%>
+            <div class="filter navbar-nav">
             <a href="/listings/cat/farms"><div style="color:black;"><i class="fa-solid fa-cow"></i></div></a>
             <p>Farms</p>
-        </div>
-        <div class="filter navbar-nav">
+            </div>
+        <%}%>
+        <%if (id=="arctic"){%>
+            <div class="filter navbar-nav" style="opacity: 1;">
+            <a href="/listings/cat/arctic"><div style="color:#fe424d;"><i class="fa-solid fa-snowman"></i></div></a>
+            <p>Arctic</p>
+            </div>
+        <%}else{%>
+            <div class="filter navbar-nav">
             <a href="/listings/cat/arctic"><div style="color:black;"><i class="fa-solid fa-snowman"></i></div></a>
             <p>Arctic</p>
-        </div>
-        <div class="filter navbar-nav">
+            </div>
+        <%}%>
+        <%if (id=="doms"){%>
+            <div class="filter navbar-nav" style="opacity: 1;">
+            <a href="/listings/cat/doms"><div style="color:#fe424d;"><i class="fa-solid fa-igloo"></i></div></a>
+            <p>Doms</p>
+            </div>
+        <%}else{%>
+            <div class="filter navbar-nav">
             <a href="/listings/cat/doms"><div style="color:black;"><i class="fa-solid fa-igloo"></i></div></a>
             <p>Doms</p>
-        </div>
-        <div class="filter navbar-nav">
+            </div>
+        <%}%>
+        <%if (id=="boats"){%>
+            <div class="filter navbar-nav" style="opacity: 1;">
+            <a href="/listings/cat/boats"><div style="color:#fe424d;"><i class="fa-solid fa-sailboat"></i></div></a>
+            <p>Boats</p>
+            </div>
+        <%}else{%>
+            <div class="filter navbar-nav">
             <a href="/listings/cat/boats"><div style="color:black;"><i class="fa-solid fa-sailboat"></i></div></a>
             <p>Boats</p>
-        </div>
-        <div class="filter navbar-nav">
+            </div>
+        <%}%>
+        <%if (id=="play"){%>
+            <div class="filter navbar-nav" style="opacity: 1;">
+            <a href="/listings/cat/play"><div style="color:#fe424d;"><i class="fa-solid fa-bowling-ball"></i></div></a>
+            <p>Play</p>
+            </div>
+        <%}else{%>
+            <div class="filter navbar-nav">
             <a href="/listings/cat/play"><div style="color:black;"><i class="fa-solid fa-bowling-ball"></i></div></a>
             <p>Play</p>
-        </div>
+            </div>
+        <%}%>
         <div class="tax-toggle navbar-nav">
             <div class="form-check-reverse form-switch">
                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">

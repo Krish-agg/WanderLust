@@ -19,11 +19,15 @@ router.route("/:id")
 .delete(isLoggedin,isOwner,wrapAsync(listingController.deleteListing));
 
 
-
+//categories
+router.get("/cat/:id",wrapAsync(listingController.categoryForm));
 
 
 //Edit Route
 router.get("/:id/edit",isLoggedin,isOwner,wrapAsync(listingController.renderEditForm));
 
+//Book Now
+router.get("/:id/book",isLoggedin,wrapAsync(listingController.bookForm));
+router.post("/booked",isLoggedin,wrapAsync(listingController.bookConfirm));
 
 module.exports=router;

@@ -1,0 +1,63 @@
+<%layout("/layouts/boilerplate.ejs")%>
+<body>
+    <div class="row mt-3" >
+    <div class="col-8 offset-2"></div>
+    <h3>Book Your Stay</h3>
+
+    <h4><b><%=listing.title%></b></h4>
+    <div class="card col-8  show-card listing-card">
+        <img src=<%=originalImageUrl%> class="card-img-top show-img1" alt="listing_image">
+        <div class="card-body">
+            <p class="card-text">
+                <%=listing.description%><br>
+                <div style="display: flex;"><h6><b>Destination:</b> </h6><%=listing.location%>,<%=listing.country%></div>    
+            </p>
+        </div>
+    </div>
+    <form method="POST" action="/listings/booked" novalidate class="needs-validation" enctype="multipart/form-data">
+        <h4>Guest Details</h4>
+        <div class="book-div">
+            <div class="mb-3">
+                <label for="title" class="form-label">Full Name</label>
+                <input name="bookname" placeholder="Enter Your Name" type="text" class="form-control" required />
+                <div class="invalid-feedback">Enter Full Name</div>
+            </div>
+            <div class="mb-3">
+                <label for="title" class="form-label">Email ID</label>
+                <input name="bookemail" placeholder="Enter Your Email-Id" type="text" class="form-control" required />
+                <div class="invalid-feedback">Enter Email ID</div>
+            </div>
+            <div class="mb-3">
+                <label for="title" class="form-label">Contact No.</label>
+                <input name="bookcontact" placeholder="Enter Your Contact Details" type="tel" class="form-control" required />
+                <div class="invalid-feedback">Enter Contact No.</div>
+            </div>
+            <div class="mb-3">
+                <label for="title" class="form-label">Check-in Date</label>
+                <input name="bookindate" placeholder="Enter Check-in Date" type="date" class="form-control" required />
+                <div class="invalid-feedback">Add Check-in Date</div>
+            </div>
+            <div class="mb-3">
+                <label for="title" class="form-label">Check-out Date</label>
+                <input name="bookoutdate" placeholder="Enter Check-out Date" type="date" class="form-control" required />
+                <div class="invalid-feedback">Add Check-out Date</div>
+            </div>
+            <div class="mb-3">
+                <label for="title" class="form-label">No. of Rooms</label>
+                <input name="bookrooms" placeholder="Enter no. of rooms" type="number" class="form-control" required />
+                <div class="invalid-feedback">Add atleast 1 room</div>
+            </div>
+        </div>
+
+        <h4>Payment Details</h4>
+        <div class="book-div">
+            <b>Payment Mode: CASH</b>
+            <p>&#8377;<%=listing.price.toLocaleString("en-IN")%> /- night (per room) + <b>18% GST</b></p>
+        </div>
+
+      <button class="btn btn-dark edit-btn mt-3">Confirm Your Stay</button>
+      <br><br>
+    </form>
+
+    
+</body>
