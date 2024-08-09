@@ -3,8 +3,8 @@ Wanderlust is a minimalistic web application inspired by Airbnb. It allows users
 
 Features
 User Authentication: Users can sign up, log in, and log out securely.
-Property Listings: Hosts can list their properties with details like location, price, and availability.
-Booking System: Users can book available properties for specific dates.
+Property Listings: Hosts can list their properties with details like location, price, etc.
+Booking System: Users can book available properties for specific dates and leave their reviews for the same.
 Responsive Design: The application is designed to work on various screen sizes.
 
 
@@ -45,7 +45,7 @@ Copy code
 npm start
 Access the application:
 
-Open your browser and navigate to http://localhost:8080.
+Open your browser and navigate to http://localhost:8080/listings.
 Usage
 For Hosts:
 
