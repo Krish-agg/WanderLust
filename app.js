@@ -28,16 +28,16 @@ const url=process.env.ATLASDB_URL;
 app.use(methodOverride("_method"));
 app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"public")));
-main().then(()=>{
-    console.log("connected to DB!");
-})
-.catch((err)=>{
-    console.log(err);
-})
+// main().then(()=>{
+//     console.log("connected to DB!");
+// })
+// .catch((err)=>{
+//     console.log(err);
+// })
 
-async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust');
-}    
+// async function main() {
+//     await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust');
+// }    
 
 
 // app.get("/testListing",async(req,res)=>{
@@ -55,18 +55,18 @@ async function main() {
 // });
 
 
-// const store=MongoStore.create({
-//     mongoUrl:url,
-//     crypto:{
-//         secret:process.env.SECRET
-//     },
-//     touchAfter:24*60*60
-// });
-// store.on("error",()=>{
-//     console.log("Mongo Session related Problem");
-// })
+const store=MongoStore.create({
+    mongoUrl:url,
+    crypto:{
+        secret:process.env.SECRET
+    },
+    touchAfter:24*60*60
+});
+store.on("error",()=>{
+    console.log("Mongo Session related Problem");
+})
 const sessionOptions={
-    //store:store,
+    store:store,
     secret:process.env.SECRET,
     resave:false,
     saveUninitialized:true,
