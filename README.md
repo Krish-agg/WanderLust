@@ -1,16 +1,18 @@
-Wanderlust
+
 Wanderlust is a minimalistic web application inspired by Airbnb. It allows users to list, search, and book accommodations from around the world.
 
 Features
 User Authentication: Users can sign up, log in, and log out securely.
 Property Listings: Hosts can list their properties with details like location, price, and availability.
-Search Functionality: Users can search for accommodations based on location, price, and dates.
 Booking System: Users can book available properties for specific dates.
 Responsive Design: The application is designed to work on various screen sizes.
+
+
 Technology Stack
 Frontend: HTML, CSS, JavaScript
 Backend: Node.js, Express.js
 Database: MongoDB
+Images:Cloudinary
 Authentication: Passport
 Hosting:Render
 Installation
@@ -31,8 +33,11 @@ Create a .env file in the root directory.
 Add the following variables:
 makefile
 Copy code
-DATABASE_URL=your-database-url
-JWT_SECRET=your-jwt-secret
+CLOUD_API_SECRET=cloudinary-secret
+CLOUD_API_KEY=cloudinary-api-key
+CLOUD_NAME=cloudinary-cloud-name
+ATLASDB_URL=your-database-url
+SECRET=session_secret
 Run the development server:
 
 bash
