@@ -11,12 +11,13 @@ router
 .route("/")
 .get(wrapAsync(listingController.index))
 .post(isLoggedin,upload.single("listing[image]"),validateListing,wrapAsync(listingController.createListing));
-
+router.get("/search", wrapAsync(listingController.search));
 router.get("/new",isLoggedin,listingController.renderNewForm);
 router.route("/:id")
 .get(wrapAsync(listingController.showListing))
 .put(isLoggedin,isOwner,upload.single("listing[image]"),validateListing,wrapAsync(listingController.updateListing))
 .delete(isLoggedin,isOwner,wrapAsync(listingController.deleteListing));
+
 
 
 //categories

@@ -89,3 +89,68 @@ module.exports.categoryForm=async(req,res)=>{
     const allListings=await Listing.find({category:id});
     res.render("listings/category.ejs",{allListings,id});
 }
+module.exports.search = async(req, res)=>{
+    console.log(req.query.q);
+    let input = req.query.q.trim().replace(/\s+/g, " "); 
+    console.log(input);
+    if (input == "" || input == " ") {
+      req.flash("error", "Search value empty !!!");
+      res.redirect("/listings");
+    }
+    let element=input;
+    let allListings = await Listing.find({
+        title: { $regex: element, $options: "i" },
+      });
+      if (allListings.length != 0) {
+        res.locals.success = "Listings searched by Title";
+        res.render("listings/index.ejs", { allListings });
+        return;
+      }
+      if (allListings.length == 0) {
+        allListings = await Listing.find({
+          category: { $regex: element, $options: "i" },
+        }).sort({ _id: -1 });
+        if (allListings.length != 0) {
+          res.locals.success = "Listings searched by Category";
+          res.render("listings/index.ejs", { allListings });
+          return;
+        }
+      }
+      if (allListings.length == 0) {
+        allListings = await Listing.find({
+          country: { $regex: element, $options: "i" },
+        }).sort({ _id: -1 });
+        if (allListings.length != 0) {
+          res.locals.success = "Listings searched by Country";
+          res.render("listings/index.ejs", { allListings });
+          return;
+        }
+      }
+      if (allListings.length == 0) {
+        let allListings = await Listing.find({
+          location: { $regex: element, $options: "i" },
+        }).sort({ _id: -1 });
+        if (allListings.length != 0) {
+          res.locals.success = "Listings searched by Location";
+          res.render("listings/index.ejs", { allListings });
+          return;
+        }
+      }
+      const intValue = parseInt(element, 10); // 10 for decimal return - int ya NaN
+      const intDec = Number.isInteger(intValue); 
+    
+      if (allListings.length == 0 && intDec) {
+        allListings = await Listing.find({ price: { $lte: element } }).sort({
+          price: 1,
+        });
+        if (allListings.length != 0) {
+          res.locals.success = `Listings searched for less than Rs ${element}`;
+          res.render("listings/index.ejs", { allListings });
+          return;
+        }
+      }
+      if (allListings.length == 0) {
+        req.flash("error", "Listings is not here !!!");
+        res.redirect("/listings");
+      }
+}    
